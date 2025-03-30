@@ -8,4 +8,13 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Logo\NotePad_Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Ico\IcoNotePad.ico" />
+    <Resource Include="Logo\NotePad_Logo.png" />
+  </ItemGroup>
+
 </Project>

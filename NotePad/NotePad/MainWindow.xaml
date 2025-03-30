@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="NotePad_Csharp" Height="450" Width="800">
+        Title="NotePad_Csharp" Height="450" Width="800"
+        Icon="/Ico/IcoNotePad.ico">
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
@@ -37,6 +38,6 @@
                  VerticalScrollBarVisibility="Auto"    
                  HorizontalScrollBarVisibility="Auto"  
                  FontFamily="Consolas"    
-                 FontSize="14" Text=""/>
+                 FontSize="14" Text="" TextChanged="txtEditor_TextChanged"/>
     </DockPanel>
 </Window>
