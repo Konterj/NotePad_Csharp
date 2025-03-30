@@ -27,6 +27,7 @@ namespace NotePad
             if (!string.IsNullOrEmpty(currentFilePath)) 
             {
                 menuFileSave_Click(sender, e);
+                this.Close();
             }
             else
             {
