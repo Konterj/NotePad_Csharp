@@ -6,14 +6,13 @@
         xmlns:local="clr-namespace:NotePad"
         mc:Ignorable="d"
         Title="О программе" Height="300" Width="400" HorizontalContentAlignment="Center" Background="#F0F0F0" ResizeMode="NoResize"
-        Icon="/Ico/IcoNotePad.png">
+        Icon="/Ico/IcoNotePad.ico">
     <DockPanel>
         <Image Source="/Logo/NotePad_Logo.png" Stretch="Uniform" DockPanel.Dock="Top" Height="100"/>
         <StackPanel DockPanel.Dock="Bottom" Height="148">
             <TextBlock Text="Простой Блокнот" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <TextBlock Text="Автор: Konterj" FontSize="10" Margin="0,10,0,0" HorizontalAlignment="Center"/>
             <TextBlock Text="Дата сборки: 30.03.2025" FontSize="10" HorizontalAlignment="Center"/>
-            <TextBlock Text="Программа разработана с использованием WPF" FontSize="10" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+            <TextBlock FontSize="10" Margin="0,10,0,0" HorizontalAlignment="Center"><Run Text="Это мой простой блокнот. "/><LineBreak/><Run Text="Можно текст писать и сохранять."/></TextBlock>
             <TextBlock Text="© 2025 Все права защищены.                                                          Автор: Konterj" FontSize="10" Height="25" Margin="5,35,15,5" Width="382"/>
         </StackPanel>
         

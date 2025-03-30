@@ -10,7 +10,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Файл">
-                <MenuItem Header="_Новый" Name="menuFileNew" Click="menuFileNew_Click"/>
+                <MenuItem Header="_Создать" Name="menuFileNew" Click="menuFileNew_Click"/>
                 <MenuItem Header="_Открыть..." Name="menuFileOpen" Click="menuFileOpen_Click"/>
                 <MenuItem Header="_Сохранить" Name="menuFileSave" Click="menuFileSave_Click"/>
                 <MenuItem Header="Сохранить _как..." Name="menuFileSaveAs" Click="menuFileSaveAs_Click"/>
@@ -38,6 +38,6 @@
                  VerticalScrollBarVisibility="Auto"    
                  HorizontalScrollBarVisibility="Auto"  
                  FontFamily="Consolas"    
-                 FontSize="14" Text="" TextChanged="txtEditor_TextChanged"/>
+                 FontSize="12" Text="" TextChanged="txtEditor_TextChanged"/>
     </DockPanel>
 </Window>
