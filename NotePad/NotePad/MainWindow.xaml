@@ -3,10 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NotePad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="NotePad_Csharp" Height="450" Width="800">
 
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Файл">
+                <MenuItem Header="_Новый" Name="menuFileNew" Click="menuFileNew_Click"/>
+                <MenuItem Header="_Открыть..." Name="menuFileOpen" Click="menuFileOpen_Click"/>
+                <MenuItem Header="_Сохранить" Name="menuFileSave" Click="menuFileSave_Click"/>
+                <MenuItem Header="Сохранить _как..." Name="menuFileSaveAs" Click="menuFileSaveAs_Click"/>
+                <Separator />
+                <MenuItem Header="_Выход" Name="menuFileExit" Click="menuFileExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Правка">
+                <MenuItem Header="Отменить" Command="ApplicationCommands.Undo"/>
+                <MenuItem Header="Вернуть" Command="ApplicationCommands.Redo"/>
+                <Separator/>
+                <MenuItem Header="Вырезать" Command="ApplicationCommands.Cut"/>
+                <MenuItem Header="Копировать" Command="ApplicationCommands.Copy"/>
+                <MenuItem Header="Вставить" Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="Показать информацию" Name="menuHelpInfo" Click="menuHelpInfo_Click"/>
+                <Separator/>
+            </MenuItem>
+        </Menu>
+
+        <TextBox Name="txtEditor"
+                 AcceptsReturn="True"      
+                 AcceptsTab="True"        
+                 TextWrapping="Wrap"       
+                 VerticalScrollBarVisibility="Auto"    
+                 HorizontalScrollBarVisibility="Auto"  
+                 FontFamily="Consolas"    
+                 FontSize="14" Text=""/>
+    </DockPanel>
 </Window>

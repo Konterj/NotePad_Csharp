@@ -1,13 +1,4 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace NotePad
 {
@@ -19,6 +10,36 @@ namespace NotePad
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void menuHelpInfo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuFileExit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuFileSaveAs_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuFileSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuFileOpen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void menuFileNew_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
