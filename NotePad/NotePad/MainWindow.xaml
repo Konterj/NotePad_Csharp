@@ -4,11 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="NotePad_Csharp" Height="450" Width="800"
-        Icon="/Ico/IcoNotePad.ico">
+        Title="NotePad_Csharp" Height="550" Width="800"
+        Icon="/Ico/IcoNotePad.ico"
+        WindowStartupLocation="CenterScreen"
+        Background="#FF2D2D2D">
 
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <Menu DockPanel.Dock="Top" Background="#FF3C3C3C" Foreground="#FFDDDDDD">
+            <!-- Меню остается как было -->
             <MenuItem Header="_Файл">
                 <MenuItem Header="_Создать" Name="menuFileNew" Click="menuFileNew_Click"/>
                 <MenuItem Header="_Открыть..." Name="menuFileOpen" Click="menuFileOpen_Click"/>
@@ -26,18 +29,97 @@
                 <MenuItem Header="Вставить" Command="ApplicationCommands.Paste"/>
             </MenuItem>
             <MenuItem Header="Справка">
-                <MenuItem Header="Показать информацию" Name="menuHelpInfo" Click="menuHelpInfo_Click"/>
-                <Separator/>
+                <MenuItem Header="Об программе" Name="menuHelpInfo" Click="menuHelpInfo_Click"/>
             </MenuItem>
+            <MenuItem Header="Фон">
+                <MenuItem Header="Изменить фон" Name="BackGroundLound" Click="BackGroundLound_Click"/>
+            </MenuItem>
+            <Menu.Resources>
+                <Style TargetType="{x:Type MenuItem}">
+                    <Setter Property="Background" Value="#FF3C3C3C"/>
+                    <Setter Property="Foreground" Value="#FFDDDDDD"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter Property="Background" Value="#FF555555"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="{x:Type Separator}">
+                    <Setter Property="Background" Value="#FF5A5A5A"/>
+                </Style>
+            </Menu.Resources>
         </Menu>
+        <Grid>
+            <!-- Определяем ресурс кисти для маски (градиент) -->
+            <Grid.Resources>
+                <RadialGradientBrush x:Key="BlurMaskBrush"
+                                     Center="0.5,0.5" RadiusX="0.6" RadiusY="0.6"
+                                     MappingMode="RelativeToBoundingBox"
+                                     SpreadMethod="Pad">
+                    <!-- Центр полностью непрозрачный (белый) -->
+                    <GradientStop Color="White" Offset="0.0" />
+                    <!-- Края полностью прозрачные (#00FFFFFF) -->
+                    <GradientStop Color="#00FFFFFF" Offset="1.0" />
+                    <!-- Поиграйте с RadiusX/Y (меньше 0.5) и Offset для настройки ширины перехода -->
+                </RadialGradientBrush>
+            </Grid.Resources>
 
-        <TextBox Name="txtEditor"
-                 AcceptsReturn="True"      
-                 AcceptsTab="True"        
-                 TextWrapping="Wrap"       
-                 VerticalScrollBarVisibility="Auto"    
-                 HorizontalScrollBarVisibility="Auto"  
-                 FontFamily="Consolas"    
-                 FontSize="12" Text="" TextChanged="txtEditor_TextChanged"/>
+
+            <Image x:Name="imgBackgroundSharp"
+                   Source="/BackGround/BackCity.png"
+                Stretch="UniformToFill" />
+
+
+            <Image x:Name="imgBackgroundBlurred"
+                   Source="/BackGround/BackCity.png" 
+                    Stretch="UniformToFill">
+                <Image.Effect>
+                    <BlurEffect Radius="15" KernelType="Gaussian"/>
+                    <!-- Размытие -->
+                </Image.Effect>
+
+                <Image.OpacityMask>
+
+                    <VisualBrush Stretch="None">
+                        <VisualBrush.Visual>
+                            <Border Width="{Binding ActualWidth, ElementName=MaskShapeProvider}"
+                                      Height="{Binding ActualHeight, ElementName=MaskShapeProvider}"
+                                      CornerRadius="{Binding CornerRadius, ElementName=MaskShapeProvider}"
+                                      Background="{StaticResource BlurMaskBrush}"/>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Image.OpacityMask>
+            </Image>
+            <Border x:Name="MaskShapeProvider"
+                    CornerRadius="20"
+                    Margin="15"
+                    Background="Transparent" />
+            <Border CornerRadius="{Binding CornerRadius, ElementName=MaskShapeProvider}" 
+                    Margin="{Binding Margin, ElementName=MaskShapeProvider}"
+                    BorderBrush="#55AAAAAA"
+                    Background="#597B7B7B">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="5" Direction="4"></DropShadowEffect>
+                </Border.Effect>
+                <!-- Светлый полупрозрачный фон для читаемости текста -->
+
+                <TextBox x:Name="txtEditor"
+                        Padding="15"
+                        AcceptsReturn="True" AcceptsTab="True" TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                        FontFamily="Consolas" FontSize="16" Text=""
+                        TextChanged="txtEditor_TextChanged"
+                        Background="Transparent"      
+                        BorderThickness="0"
+                        Foreground="White"
+                        CaretBrush="LightGray"
+                        SelectionBrush="DarkGray" />
+            </Border>
+            <!-- Фон не важен, важны размеры и CornerRadius -->
+
+
+            <!-- 3. Слой формы + СВЕТЛОГО фона для TextBox (лежит поверх всего) -->
+        </Grid>
     </DockPanel>
 </Window>

@@ -115,5 +115,10 @@ namespace NotePad
             Control_Size_Font fontSizeWindow = new Control_Size_Font(this); // Передаем ссылку на текущее окно MainWindow
             fontSizeWindow.ShowDialog(); // Или fontSizeWindow.Show(); если не хочешь модальное окно
         }
+
+        private void BackGroundLound_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

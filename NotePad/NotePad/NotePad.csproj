@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="BackGround\Apples_Colored_background_Water_splash_578337_1920x1280.jpg" />
+    <None Remove="BackGround\BackCity.png" />
     <None Remove="Logo\NotePad_Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="BackGround\Apples_Colored_background_Water_splash_578337_1920x1280.jpg" />
+    <Resource Include="BackGround\BackCity.png" />
     <Resource Include="Ico\IcoNotePad.ico" />
     <Resource Include="Logo\NotePad_Logo.png" />
   </ItemGroup>
